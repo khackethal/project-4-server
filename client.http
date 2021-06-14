@@ -1,0 +1,61 @@
+
+### REGISTER A USER
+
+POST http://localhost:8000/api/auth/register/
+Content-Type: application/json
+
+{ "username": "kat2",
+  "email": "kat@email.com2",
+  "profileImage": "image.jpg",
+  "userCity": "London",
+  "userCountry": "UK",
+  "password": "pass",
+  "passwordConfirmation": "pass"
+
+}
+
+### LOGIN A USER
+
+POST http://localhost:8000/api/auth/login/
+Content-Type: application/json
+
+{
+  "email": "kat@email.com2",
+  "password": "pass"
+
+}
+
+### USER PROFILE VIEW
+
+GET http://localhost:8000/api/auth/profile/4
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+### EDIT PROFILE VIEW
+PUT http://localhost:8000/api/auth/profile/4/edit/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+{
+  "username":"Kat2",
+  "profileImage": "image",
+  "status": "Hi London",
+  "userCity": "London",
+  "userCountry": "UK"
+
+}
+
+
+### 
+GET https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng
+Content-Type: application/json
+x-rapidapi-key: 97dc91ee1amsh66c5d649a7ac4fcp19c6f5jsn216d8806b1bc
+x-rapidapi-host: 'travel-advisor.p.rapidapi.com
+
+
+{
+  "longitude": "50",
+  "latitude": "2"
+
+}
