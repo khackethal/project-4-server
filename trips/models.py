@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import BooleanField
+# from django.db.models.fields import BooleanField
 
 class Trip(models.Model):
     location_id = models.CharField(max_length=20, blank=True)
@@ -14,6 +14,12 @@ class Trip(models.Model):
     liked_by = models.ManyToManyField(
         'jwt_auth.User',
         related_name='likes',
+        blank=True
+    )
+
+    listed_by = models.ManyToManyField(
+        'jwt_auth.User',
+        related_name='lists',
         blank=True
     )
 
@@ -50,7 +56,8 @@ class UserTripList(models.Model):
     is_public = models.BooleanField()
     trips = models.ManyToManyField(
       Trip,
-      related_name='TripLists'
+      related_name='trips',
+      blank=True
     )
 
     owner = models.ForeignKey(

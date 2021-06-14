@@ -1,4 +1,76 @@
 
+### SHOW ALL TRIPS
+GET http://localhost:8000/api/trips/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+
+### SHOW one TRIP
+GET http://localhost:8000/api/trips/1/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+
+### DELETE ONE TRIP BY ID
+DELETE http://localhost:8000/api/trips/1/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+### CREATE A TRIP
+POST http://localhost:8000/api/trips/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+{
+  "name": "Trip to Paris",
+  "location_string": " London, UK",
+  "description": "Great trip",
+  "image": "image.png"
+}
+
+
+### EDIT A TRIP
+PUT http://localhost:8000/api/trips/2/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+{
+  "name": "Trip to London",
+  "location_string": " London, UK",
+  "description": "Great trip, really",
+  "image": "image.png"
+}
+
+
+### COMMENT ON A TRIP
+POST http://localhost:8000/api/trips/2/comments/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+{
+  "content": "cool trip"
+}
+
+
+### DELETE A COMMENT
+DELETE http://localhost:8000/api/trips/2/comments/1/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+### TRIP LIKE VIEW
+POST http://localhost:8000/api/trips/2/like/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+
+
+
 ### REGISTER A USER
 
 POST http://localhost:8000/api/auth/register/
@@ -47,6 +119,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6M
 }
 
 
+
 ### 
 GET https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng
 Content-Type: application/json
@@ -59,3 +132,53 @@ x-rapidapi-host: 'travel-advisor.p.rapidapi.com
   "latitude": "2"
 
 }
+
+### VIEW ALL LISTS
+GET http://localhost:8000/api/trips/lists/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+### VIEW ONE LIST
+GET http://localhost:8000/api/trips/lists/2/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+### RENAME ONE LIST AND/ OR CHANGE PRIVACY SETTINGS
+PUT http://localhost:8000/api/trips/lists/2/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+{
+  "list_name": "Renamed List Yes again",
+  "is_public": "True"
+
+}
+
+### DELETE ONE LIST
+DELETE  http://localhost:8000/api/trips/lists/1/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+
+
+### START A NEW LIST
+POST http://localhost:8000/api/trips/lists/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+
+{
+  "list_name": "Summer Fun",
+  "isPublic": "True"
+
+}
+
+### ADD A TRIP TO A LIST TOGGLE TO REMOVE FROM LIST IF TRIP ALREADY EXISTS
+POST http://localhost:8000/api/trips/1/list/2/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+
+

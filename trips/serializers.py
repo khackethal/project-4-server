@@ -1,4 +1,4 @@
-from django.db.models import fields
+# from django.db.models import fields
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 
@@ -30,6 +30,12 @@ class UserTripListSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTripList
         fields = '__all__'
+
+
+class UpdatedUserTripListSeralizer(serializers.ModelSerializer):
+    class Meta:
+        model = UserTripList
+        fields= ('list_name', 'is_public')
 
 
 

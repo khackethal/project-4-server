@@ -5,7 +5,7 @@ from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Trip, Comment, UserTripList
-from .serializers import UserSerializer, CommentSerializer, TripSerializer, UserTripListSerializer, PopulatedCommentSerialzer, PopulatedTripSerializer, PopulatedUserTripListSerializer, PopulatedUserSerializer
+from .serializers import CommentSerializer, TripSerializer, UserTripListSerializer, PopulatedTripSerializer, PopulatedUserTripListSerializer, UpdatedUserTripListSeralizer
 
 
 ## TRIP VIEW ALL
@@ -74,14 +74,14 @@ class TripLikeView(APIView):
 
     def post(self, request, pk):
         try:
-            trip_to_favorite = Trip.objects.get(pk=pk)
-            if request.user in trip_to_favorite.favorited_by.all():
-                trip_to_favorite.favorited_by.remove(request.user.id)
+            trip_to_like = Trip.objects.get(pk=pk)
+            if request.user in trip_to_like.liked_by.all():
+                trip_to_like.liked_by.remove(request.user.id)
             else:
-                trip_to_favorite.favorited_by.add(request.user.id)
-            trip_to_favorite.save()
-            serialized_dinosaur = PopulatedTripSerializer(trip_to_favorite)
-            return Response(serialized_dinosaur.data, status=status.HTTP_202_ACCEPTED)
+                trip_to_like.liked_by.add(request.user.id)
+            trip_to_like.save()
+            serialized_trip = PopulatedTripSerializer(trip_to_like)
+            return Response(serialized_trip.data, status=status.HTTP_202_ACCEPTED)
         except Trip.DoesNotExist:
             raise NotFound()
 
@@ -116,4 +116,89 @@ class CommentDetailView(APIView):
             raise NotFound()
 
 
-## CREATE NEW TRIP LIST
+## VIEW ALL TRIP LISTS
+
+class UserTripListView(APIView):
+    
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, _request):
+        lists = UserTripList.objects.all()
+        serialized_trips = PopulatedUserTripListSerializer(lists, many=True)
+        return Response(serialized_trips.data, status=status.HTTP_200_OK)
+    
+## POST A NEW LIST
+    def post(self, request):
+        request.data['owner'] = request.user.id
+        new_list = UserTripListSerializer(data=request.data)
+        if new_list.is_valid():
+            new_list.save()
+            return Response(new_list.data, status=status.HTTP_201_CREATED)
+        return Response(new_list.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+## VIEW A SINGLE LIST and METHODS
+class UserTripListDetailView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+#FIND MATCH
+    def get_list(self, pk):
+        try:
+            return UserTripList.objects.get(pk=pk)
+        except UserTripList.DoesNotExist:
+            raise NotFound()
+# SHOW ONE
+    def get(self, _request, pk):
+        user_list = self.get_list(pk=pk)
+        serialized_list = PopulatedUserTripListSerializer(user_list)
+        return Response(serialized_list.data, status=status.HTTP_200_OK)
+
+# DELETE LIST
+    def delete(self, request, pk):
+        list_to_delete = self.get_list(pk=pk)
+        if list_to_delete.owner != request.user:
+            raise PermissionDenied()
+        list_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+## RENAME LIST OR CHANGE PRIVACY SETTINGS 
+    def put(self, request, pk):
+        list_to_update = self.get_list(pk=pk)
+        if list_to_update.owner != request.user:
+            raise PermissionDenied()
+        request.data['owner'] = request.user.id
+        updated_list = UpdatedUserTripListSeralizer(list_to_update, data=request.data)
+        if updated_list.is_valid():
+            updated_list.save()
+            return Response(updated_list.data, status=status.HTTP_202_ACCEPTED)
+        return Response(updated_list.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+
+
+
+# # ADD A TRIP TO A LIST/ TOGGLE TO REMOVE A TRIP FROM A LIST
+class TripAddListView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, trip_pk, list_pk):
+        try:
+            trip_to_list = Trip.objects.get(pk=trip_pk)
+            user_list = UserTripList.objects.get(pk=list_pk)
+
+            if trip_to_list in user_list.trips.all():
+                trip_to_list.listed_by.remove(request.user.id)
+                user_list.trips.remove(trip_to_list.id)
+                serialized_list = PopulatedUserTripListSerializer(user_list)
+                return Response(serialized_list.data, status=status.HTTP_202_ACCEPTED)
+            else:
+                trip_to_list.listed_by.add(request.user.id)
+                user_list.trips.add(trip_to_list.id)
+                trip_to_list.save()
+                user_list.save()
+                serialized_list = PopulatedUserTripListSerializer(user_list)
+                return Response(serialized_list.data, status=status.HTTP_202_ACCEPTED)
+        except Trip.DoesNotExist:
+            raise NotFound()
