@@ -48,7 +48,7 @@ class LoginView(APIView):
             algorithm='HS256'
         )
         return Response(
-            {'token': token, 'message': f'Welcome back {user_to_login.username}'}
+            {'token': token, 'userId': user_to_login.id ,'message': f'Welcome back {user_to_login.username}'}
         )
 
 

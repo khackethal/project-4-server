@@ -39,6 +39,10 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ( 'first_name', 'last_name','username', 'profile_image', 'status', 'user_city', 'user_country')
+        fields = ( 'status', )
 
 
+# class PopulatedUserSerializer(UserSerializer):
+#     trips = PopulatedTripSerializer(many=True)
+#     comments = PopulatedCommentSerialzer(many=True)
+#     trip_lists = PopulatedUserTripListSerializer(many=True)

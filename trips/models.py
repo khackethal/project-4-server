@@ -1,12 +1,13 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 # from django.db.models.fields import BooleanField
 
 class Trip(models.Model):
     location_id = models.CharField(max_length=20, blank=True)
     name = models.CharField(max_length=50)
-    latitude = models.CharField(max_length=10, blank=True)
-    longitude = models.CharField(max_length=10, blank=True)
-    location_string = models.CharField(max_length=100)
+    latitude_longitude = ArrayField(models.FloatField(max_length=50, blank=True))
+
+    location_string = models.CharField(max_length=100, blank=True)
     description = models.TextField(max_length=500)
     open_now_text = models.CharField(max_length=20, blank=True)
     image = models.CharField(max_length=250)

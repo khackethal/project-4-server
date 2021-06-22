@@ -2,12 +2,12 @@
 ### SHOW ALL TRIPS
 GET http://localhost:8000/api/trips/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+# Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
 
 
 
 ### SHOW one TRIP
-GET http://localhost:8000/api/trips/1/
+GET http://localhost:8000/api/trips/10/
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
 
@@ -22,11 +22,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6M
 ### CREATE A TRIP
 POST http://localhost:8000/api/trips/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMsImV4cCI6MTYyNDQ1NDA4OX0.LtogV2-_osm8oa0C0U6ojyqClHCum4Vq6QDWBGPnx64
 
 {
   "name": "Trip to Paris",
-  "location_string": " London, UK",
+  "latitudeLongitude": [7.43861, 46.95083],
   "description": "Great trip",
   "image": "image.png"
 }
@@ -46,7 +46,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6M
 
 
 ### COMMENT ON A TRIP
-POST http://localhost:8000/api/trips/2/comments/
+POST http://localhost:8000/api/trips/10/comments/
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
 
@@ -63,10 +63,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6M
 
 
 ### TRIP LIKE VIEW
-POST http://localhost:8000/api/trips/2/like/
+POST http://localhost:8000/api/trips/10/like/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEwLCJleHAiOjE2MjQ4Njk4MTh9.al8FSKag25MQrT3zW-9mjRFQftEC1h5UJneD51df1Lk
 
 
 
@@ -86,35 +85,37 @@ Content-Type: application/json
 
 }
 
+  # "profileImage": "image.jpg",
+  # "userCity": "London",
+
 ### LOGIN A USER
 
 POST http://localhost:8000/api/auth/login/
 Content-Type: application/json
 
 {
-  "email": "kat@email.com2",
+  "email": "maja@email.com",
   "password": "pass"
 
 }
 
 ### USER PROFILE VIEW
 
-GET http://localhost:8000/api/auth/profile/4
+GET http://localhost:8000/api/auth/profile/6
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMsImV4cCI6MTYyNDQ1OTE2Mn0.lN1bAyoBCn2km-svA9aATgfbPSct8dvMWAgFmQ_5fuw
 
 
 ### EDIT PROFILE VIEW
-PUT http://localhost:8000/api/auth/profile/4/edit/
+PUT http://localhost:8000/api/auth/profile/6/edit/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjYsImV4cCI6MTYyNDYyMzE4OX0.7jQU8gtp9ekni6OrqOempk-XGH3io2ulXgMtcJBvYq0
 
 {
-  "username":"Kat2",
-  "profileImage": "image",
-  "status": "Hi London",
-  "userCity": "London",
-  "userCountry": "UK"
+
+  "status": "Hi London how are you"
+
+
 
 }
 
@@ -140,9 +141,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6M
 
 
 ### VIEW ONE LIST
-GET http://localhost:8000/api/trips/lists/2/
+GET http://localhost:8000/api/trips/lists/4/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEwLCJleHAiOjE2MjQ4Njk4MTh9.al8FSKag25MQrT3zW-9mjRFQftEC1h5UJneD51df1Lk
 
 
 ### RENAME ONE LIST AND/ OR CHANGE PRIVACY SETTINGS
@@ -151,7 +152,7 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
 
 {
-  "list_name": "Renamed List Yes again",
+  "list_name": "Renamed List Yes again once more hey",
   "is_public": "True"
 
 }
@@ -167,18 +168,16 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6M
 ### START A NEW LIST
 POST http://localhost:8000/api/trips/lists/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEwLCJleHAiOjE2MjQ4Njk4MTh9.al8FSKag25MQrT3zW-9mjRFQftEC1h5UJneD51df1Lk
 
 {
-  "list_name": "Summer Fun",
+  "list_name": "Winter",
   "isPublic": "True"
 
 }
 
 ### ADD A TRIP TO A LIST TOGGLE TO REMOVE FROM LIST IF TRIP ALREADY EXISTS
-POST http://localhost:8000/api/trips/1/list/2/
+POST http://localhost:8000/api/trips/4/list/16/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTYyNDI3MjQ1OX0.sm0c7ZjG3Dy5Vqf-jlAE4GlyHRWzwLS-VEeMPskNnfI
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEwLCJleHAiOjE2MjQ4Njk4MTh9.al8FSKag25MQrT3zW-9mjRFQftEC1h5UJneD51df1Lk
 
