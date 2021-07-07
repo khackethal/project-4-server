@@ -7,7 +7,7 @@ A social media network that allows users to create a profile for themselves, sha
 
 [Try it out.](insert link to deployed app)
 
-For the best user experience I would recommend to register with a name and profile photo, to fully see the customization per user across the app. 
+For the best user experience I would recommend to register with a name and profile photo, to fully see the customisation per user across the app. 
 
 
 ## Table of Contents
@@ -26,7 +26,7 @@ For the best user experience I would recommend to register with a name and profi
 
 ## Brief
 
-Create a full-stack application with its own Front End and Back End. Use a Python Django API, using a Django REST Framewrok to serve data from a Postgres Database. Consume the API with a React front end.  
+Create a full-stack application with its own Front End and Back End. Use a Python Django API, using a Django REST Framework to serve data from a Postgres Database. Consume the API with a React front end.  
 Create a complete product with multiple relationships and CRUD functionality. Implement thoughtful user stories and have a visually impressive design. Deploy online so it's publicly accessible.
 
 ## Approach
@@ -35,14 +35,14 @@ Create a complete product with multiple relationships and CRUD functionality. Im
 
 My main priority was creating a seamless user experience, allowing a journey through the app that makes sense, and interlinking all related components. The most important elements and main targets were:
 
-- Login and Register functionality, with all content availble after login only as the app experience requires a user profile
-- Customization of the Navbar and SideBar for each user, giving them easy and fast access to all trips they posted and all lists they created
+- Login and Register functionality, with all content available after login only as the app experience requires a user profile
+- Customisation of the Navbar and SideBar for each user, giving them easy and fast access to all trips they posted and all lists they created
 - Displaying all trips on a homepage as easily searchable 'feed'
 - The ability to easily view other users lists, and add any trips within them to the user's own lists
-- Easy travel through the app between trips, lists and other user profiles, with everyting the user would expect to be a link actually being one
+- Easy travel through the app between trips, lists and other user profiles, with everything the user would expect to be a link actually being one
 - Building the entire React frontend with pure CSS from scratch, not using any libraries or frameworks
 
-A stretch goal I dind't have time to implement was a messaging functionality between users, which I might revisit in the coming weeks. Please see below for other future features.
+A stretch goal I didn't have time to implement was a messaging functionality between users, which I might revisit in the coming weeks. Please see below for other future features.
 
 
 ### Technologies/ Frameworks/ APIs
@@ -73,7 +73,7 @@ A stretch goal I dind't have time to implement was a messaging functionality bet
 
 ### Methodologies
 - Write readable, simple, DRY code per KISS
-- Create reuseable components that have a clear, specific task 
+- Create reusable components that have a clear, specific task 
 
 N. B it was optional to work in groups for this project, I chose to work solo to ensure I have clearly understood all aspects of creating both the Back End and the Front End, and to consolidate existing CSS skills. 
 
@@ -186,7 +186,7 @@ class UserTripListDetailView(APIView):
         return Response(updated_list.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 ```
 
-Another noteworthy feature of the backend is the tweaked the login return, which returns the user id, enabling me to write a simple Front End React Hook for every component to use to identify the current user and update the component render immediatly on user changes (detailed in FrontEnd section).
+Another noteworthy feature of the backend is the tweaked the login return, which returns the user id, enabling me to write a simple Front End React Hook for every component to use to identify the current user and update the component render immediately on user changes (detailed in FrontEnd section).
 
 ```
 
@@ -218,7 +218,7 @@ class LoginView(APIView):
 ### Front End
 
 The front end is a React app, using the following wireframes. 
-The below frames have been tweajed slighlty for the final app, as I felt it would be neneficial for the user and create a more seamless experience to reduce the number of pages and page changes.
+The below frames have been tweaked slightly for the final app, as I felt it would be beneficial for the user and create a more seamless experience to reduce the number of pages and page changes.
 The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/) 
 
 ##
@@ -227,9 +227,9 @@ The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/)
 ##
 
 
-I meantioned the User Hook above, it enables the app to be highly personialed.
+I mentioned the User Hook above, it enables the app to be highly personalised.
 
-On login, the user id returned by the backend is stored in local storage: 
+On login, the user id returned by the Back End is stored in local storage: 
 
 ```
 export function setUserId(userId) {
@@ -282,13 +282,13 @@ function useSetUser() {
 export default useSetUser
 ```
 
-Every component can then use a single line of code to determine the current user and modify the component contents accordingly.
+Every component can then use a single line of code to determine the current user and modify the component's contents accordingly.
 ```
  const { user, setUser } = useSetUser()
 ```
 
-Exporting setUser as well measn we can instantly re-render the component after the user makes a change, for example updating the status in the status box component, or after uplaoding a new profile image.
-This enables customization and responsiveness across the app. The Status Box component is listed as an example use case below.
+Exporting setUser as well means we can instantly re-render the component after the user makes a change, for example updating the status in the status box component, or after uploading a new profile image.
+This enables customisation and responsiveness across the app. The Status Box component is listed as an example use case below.
 
 ```
 import React from 'react'
@@ -360,8 +360,8 @@ export default StatusBox
 ```
 
 
-The main feature of the app is the ability to create future tip wishlists by adding trips other users have posted. User have the opportunty to set their lists as either "public" (visibile to all other users) or "private"(visible only to them). 
-This is achieved simply by a tickbox setting a boolean list property "isPublic" to false if the user selects it as per the code below.
+The main feature of the app is the ability to create future tip wish-lists by adding trips other users have posted. User have the opportunity to set their lists as either "public" (visible to all other users) or "private"(visible only to them). 
+This is achieved simply by a tick-box setting a boolean list property "isPublic" to false if the user selects it as per the code below.
 In any public pages lists will be filtered to only be displayed if "isPublic" is true.
 
 ```
@@ -447,35 +447,22 @@ export default CreateNewList
 ### Challenges & Bugs
 
 The main challenge on this project was definitely time, it was an ambitious app to complete in 8 days, especially given that no CSS frameworks were used.
-While most bugs were fixed by the end of the project a couple still reamin. 
+While most bugs were fixed by the end of the project a couple still remain. 
 
-On the sinlge trip view, the function to filter out user lists that the trip has already been added to currently downs't work, the path breaks with "cannot read property "inlcudes" of undefined". This means curretnly a user list will appear with the option to add even if the trip has already been added. As the function is a toggle function clicking add again will actually remove the trip from the list.
+On the single trip view, the function to filter out user lists that the trip has already been added to currently downs't work, the path breaks with "cannot read property "includes" of undefined". This means currently a user list will appear with the option to add even if the trip has already been added. As the function is a toggle function clicking add again will actually remove the trip from the list.
 Possible solutions: 
 1) Filter the lists before mapping over them, rather than do the map and filter in one go which results in the error. 
 2) Change the backend to have one "add" and one "delete" path.
 
 Then secondly, on the edit trip function the map is not zooming into the previous trip location. The information is there in the backend, so if the user does not edit the map it will remain the same, however currently the zoom is missing. 
-To solve this temporatily, I've added another map component above the edit function to show the correct current location.
+To solve this temporarily, I've added another map component above the edit function to show the correct current location.
 
 
 ### Key Learnings
 
 The project was a great way to learn Python, Django and SQL, and to see how easily they work together to create fairly complex relationships.
-I also got a lot better at reading error messages. Quite often if I dind't know exactly how to make something work I would write the code that logically seemed the closests and then go by the error messages to tweak it and make it work. 
-Finally the project served to consolidate my React skills, I really learned just how easy it is to extract logic into smaller components and dispay them on the page according to a React state set by user interaction, and how Front End and Back End can work together to display the exact data needed. 
-
-
-
-### Conclusions & Future Features
-
-Due to time contraints I didn't meet a few of my goals, namely:
-
-1) Messaging between users
-2) A more extensive user profile which includes a cover image, and single buttons to edit each section with one click, similar to the current "update status" and "update profile image"
-3) Mobile responsiveness - the page currently works fine viewed on desktop, but starts looking strange for a screen size less than 1100px wide
-4) Refactoring code - I feel most current pages could be borken down into further components, with the finalised main pages not containing any logic at all, simply componenets such as < Sidebar />. The current Home.js page is a good example for this.
-
-In conlusion this was a fun project to take on, I really enjoyed creating the relationships between different componenets in the Back End, and then using the Front End to filter, map and link them to create a seamless user experience.
+I also got a lot better at reading error messages. Quite often if I didn't know exactly how to make something work I would write the code that logically seemed the closest and then go by the error messages to tweak it and make it work. 
+Finally the project served to consolidate my React skills, I really learned just how easy it is to extract logic into smaller components and display them on the page according to a React state set by user interaction, and how Front End and Back End can work together to display the exact data needed. 
 
 
 
