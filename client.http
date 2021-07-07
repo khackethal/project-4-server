@@ -94,7 +94,7 @@ POST http://localhost:8000/api/auth/login/
 Content-Type: application/json
 
 {
-  "email": "maja@email.com",
+  "email": "katja@kat.com",
   "password": "pass"
 
 }
@@ -109,11 +109,25 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMsImV4cCI6M
 ### EDIT PROFILE VIEW
 PUT http://localhost:8000/api/auth/profile/6/edit/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjYsImV4cCI6MTYyNDYyMzE4OX0.7jQU8gtp9ekni6OrqOempk-XGH3io2ulXgMtcJBvYq0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjYsImV4cCI6MTYyNTUwMjE3MX0.Z7TL6pwiEmYCA8-xIyJSxKoCO22CrcQO42p_2FdYEoI
 
 {
 
   "status": "Hi London how are you"
+
+
+
+}
+
+### EDIT PROFILE IMAG VIEW
+PUT http://localhost:8000/api/auth/profile/6/edit/image/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjYsImV4cCI6MTYyNTUwMjE3MX0.Z7TL6pwiEmYCA8-xIyJSxKoCO22CrcQO42p_2FdYEoI
+
+{
+
+
+  "profile_image": "newimage.jpg"
 
 
 

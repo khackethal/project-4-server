@@ -12,13 +12,10 @@ from .serializers import CommentSerializer, TripSerializer, UserTripListSerializ
 
 class TripListView(APIView):
 
-    # permission_classes = (IsAuthenticated, )
-
     def get(self, _request):
         trips = Trip.objects.all()
         serialized_trips = PopulatedTripSerializer(trips, many=True)
         return Response(serialized_trips.data, status=status.HTTP_200_OK)
-
 
 
 # POST NEW TRIP
@@ -85,6 +82,7 @@ class TripLikeView(APIView):
             return Response(serialized_trip.data, status=status.HTTP_202_ACCEPTED)
         except Trip.DoesNotExist:
             raise NotFound()
+
 
 
 

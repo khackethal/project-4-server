@@ -10,7 +10,7 @@ from django.conf import settings
 import jwt
 
 
-from .serializers import UserSerializer, UserProfileSerializer
+from .serializers import UserSerializer, UserProfileSerializer, UserProfileImageSerializer
 
 User = get_user_model()
 
@@ -82,6 +82,29 @@ class EditProfileView(APIView):
 
         request.data['owner'] = request.user.id
         updated_profile = UserProfileSerializer(profile_to_update, data=request.data)
+        if updated_profile.is_valid():
+            updated_profile.save()
+            return Response(updated_profile.data, status=status.HTTP_202_ACCEPTED)
+        return Response(updated_profile.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+class EditProfileImageView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+
+    def get_profile(self, pk):
+        try :
+            return User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise NotFound()
+
+    def put(self, request, pk):
+        profile_to_update = self.get_profile(pk=pk)
+        if profile_to_update.id != request.user.id:
+            raise PermissionDenied()
+
+        request.data['owner'] = request.user.id
+        updated_profile = UserProfileImageSerializer(profile_to_update, data=request.data)
         if updated_profile.is_valid():
             updated_profile.save()
             return Response(updated_profile.data, status=status.HTTP_202_ACCEPTED)
