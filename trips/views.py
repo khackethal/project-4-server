@@ -84,8 +84,6 @@ class TripLikeView(APIView):
             raise NotFound()
 
 
-
-
 ## COMMENT POST
 class CommentListView(APIView):
 
