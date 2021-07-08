@@ -1,0 +1,629 @@
+[
+{
+  "model": "trips.trip",
+  "pk": 9,
+  "fields": {
+    "location_id": "",
+    "name": "Mexico",
+    "latitude_longitude": "[\"-99.14556\", \"19.41944\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624031200/TripBook/o1xytuxbzcnt0wigeq8y.png",
+    "owner": 7,
+    "liked_by": [
+      4,
+      6
+    ],
+    "listed_by": []
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 10,
+  "fields": {
+    "location_id": "",
+    "name": "Prague",
+    "latitude_longitude": "[\"14.42139\", \"50.08861\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624031316/TripBook/fzlz0xsfjiq9agjmxomy.png",
+    "owner": 7,
+    "liked_by": [
+      13,
+      4
+    ],
+    "listed_by": [
+      13,
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 11,
+  "fields": {
+    "location_id": "",
+    "name": "Berlin",
+    "latitude_longitude": "[\"13.38333\", \"52.51667\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624031444/TripBook/hhczxlismmnkqolnhbmt.png",
+    "owner": 6,
+    "liked_by": [
+      7,
+      6,
+      10
+    ],
+    "listed_by": [
+      7,
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 12,
+  "fields": {
+    "location_id": "",
+    "name": "Paris!",
+    "latitude_longitude": "[\"2.35183\", \"48.85658\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624031664/TripBook/t74whopvqhtlf8v8gi2v.png",
+    "owner": 8,
+    "liked_by": [
+      7,
+      6,
+      10
+    ],
+    "listed_by": [
+      7,
+      6,
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 13,
+  "fields": {
+    "location_id": "",
+    "name": "Summer Holiday!!",
+    "latitude_longitude": "[\"-70.1067224933053\", \"18.6062576970524\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624031723/TripBook/vh5pke34yt44nzqowodz.png",
+    "owner": 8,
+    "liked_by": [
+      6,
+      10
+    ],
+    "listed_by": [
+      6,
+      13,
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 14,
+  "fields": {
+    "location_id": "",
+    "name": "Venice",
+    "latitude_longitude": "[\"12.33194\", \"45.43972\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624031987/TripBook/d6yiuv4cnsszdiayyfei.png",
+    "owner": 9,
+    "liked_by": [
+      7,
+      6,
+      10
+    ],
+    "listed_by": [
+      7,
+      13,
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 15,
+  "fields": {
+    "location_id": "",
+    "name": "New Forest",
+    "latitude_longitude": "[\"-1.574664\", \"50.868734\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624032401/TripBook/x8lnk5fmh3klnnzpeleu.png",
+    "owner": 6,
+    "liked_by": [
+      6,
+      11,
+      10
+    ],
+    "listed_by": [
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 16,
+  "fields": {
+    "location_id": "",
+    "name": "Peru",
+    "latitude_longitude": "[\"-75.3111319559783\", \"-10.1510925136244\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624036387/TripBook/fll2k4wzat9w9ogvxjbf.png",
+    "owner": 10,
+    "liked_by": [
+      7,
+      6,
+      11
+    ],
+    "listed_by": [
+      6,
+      11
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 17,
+  "fields": {
+    "location_id": "",
+    "name": "Moskau",
+    "latitude_longitude": "[\"37.61778\", \"55.75583\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624036484/TripBook/nfg79xrrlz9hia1sza7j.png",
+    "owner": 10,
+    "liked_by": [
+      7,
+      8,
+      6,
+      11
+    ],
+    "listed_by": [
+      8,
+      6,
+      11,
+      13,
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 18,
+  "fields": {
+    "location_id": "",
+    "name": "Barcelona",
+    "latitude_longitude": "[\"2.17694\", \"41.3825\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624036633/TripBook/u2qytcw6rsuruokfxboz.png",
+    "owner": 10,
+    "liked_by": [
+      7,
+      10
+    ],
+    "listed_by": [
+      7,
+      13,
+      10
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 20,
+  "fields": {
+    "location_id": "",
+    "name": "Iceland",
+    "latitude_longitude": "[\"-18.6054668169534\", \"64.9975884448459\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624036958/TripBook/bbzlycwkpvyhisslrwgz.png",
+    "owner": 11,
+    "liked_by": [
+      8,
+      6
+    ],
+    "listed_by": [
+      8
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 21,
+  "fields": {
+    "location_id": "",
+    "name": "Gothenburg",
+    "latitude_longitude": "[\"11.96667\", \"57.70694\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624037088/TripBook/lajkbnqbonawxlnmzklf.png",
+    "owner": 11,
+    "liked_by": [
+      7,
+      6
+    ],
+    "listed_by": [
+      7,
+      13
+    ]
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 22,
+  "fields": {
+    "location_id": "",
+    "name": "Rome",
+    "latitude_longitude": "[\"12.48278\", \"41.89306\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624186061/TripBook/wclq6ndk0kpkmadbcusu.png",
+    "owner": 6,
+    "liked_by": [
+      6
+    ],
+    "listed_by": []
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 23,
+  "fields": {
+    "location_id": "",
+    "name": "Lisbon",
+    "latitude_longitude": "[\"-9.1484\", \"38.7263\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624186214/TripBook/lcmdb2guaxtkdu8bon8n.png",
+    "owner": 6,
+    "liked_by": [],
+    "listed_by": []
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 24,
+  "fields": {
+    "location_id": "",
+    "name": "Hamburg",
+    "latitude_longitude": "[\"10.0\", \"53.55\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624186325/TripBook/haakll88hmf3c41smfvg.png",
+    "owner": 6,
+    "liked_by": [
+      11,
+      10,
+      4
+    ],
+    "listed_by": []
+  }
+},
+{
+  "model": "trips.trip",
+  "pk": 27,
+  "fields": {
+    "location_id": "",
+    "name": "Buenos Aires",
+    "latitude_longitude": "[\"-58.38194\", \"-34.59972\"]",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "http://res.cloudinary.com/dvxtec1zs/image/upload/v1624212408/TripBook/bfqohtu7iix0auanyhmf.png",
+    "owner": 9,
+    "liked_by": [
+      10
+    ],
+    "listed_by": [
+      10
+    ]
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 6,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 10,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 8,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 17,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 13,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 12,
+    "owner": 10
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 14,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 13,
+    "owner": 10
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 15,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 11,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 18,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 14,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 19,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 18,
+    "owner": 10
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 20,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 10,
+    "owner": 10
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 21,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 11,
+    "owner": 10
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 22,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 16,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 23,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 13,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 24,
+  "fields": {
+    "content": "Cool trip",
+    "trip": 16,
+    "owner": 7
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 25,
+  "fields": {
+    "content": "Cool trip",
+    "trip": 11,
+    "owner": 7
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 26,
+  "fields": {
+    "content": "Cool trip",
+    "trip": 21,
+    "owner": 7
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 27,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 16,
+    "owner": 11
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 28,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 15,
+    "owner": 11
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 29,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 20,
+    "owner": 8
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 31,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 9,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 32,
+  "fields": {
+    "content": "Looks amazing! I want to go!",
+    "trip": 21,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.comment",
+  "pk": 33,
+  "fields": {
+    "content": "Such a nice trip, thank you for sharing.",
+    "trip": 12,
+    "owner": 6
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 4,
+  "fields": {
+    "list_name": "To do in 2022",
+    "is_public": true,
+    "owner": 6,
+    "trips": [
+      15,
+      17,
+      16
+    ]
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 5,
+  "fields": {
+    "list_name": "Ultimate Wishlist",
+    "is_public": true,
+    "owner": 10,
+    "trips": [
+      15,
+      10,
+      14,
+      11,
+      27
+    ]
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 17,
+  "fields": {
+    "list_name": "Ultimate Travel List",
+    "is_public": true,
+    "owner": 13,
+    "trips": [
+      14,
+      18,
+      13,
+      17,
+      10,
+      21
+    ]
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 19,
+  "fields": {
+    "list_name": "Europe Wishlist",
+    "is_public": true,
+    "owner": 7,
+    "trips": [
+      21,
+      14,
+      11,
+      12,
+      18
+    ]
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 20,
+  "fields": {
+    "list_name": "Coming Up",
+    "is_public": true,
+    "owner": 11,
+    "trips": [
+      16,
+      17
+    ]
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 22,
+  "fields": {
+    "list_name": "Travel Inspo",
+    "is_public": true,
+    "owner": 8,
+    "trips": [
+      20,
+      17
+    ]
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 23,
+  "fields": {
+    "list_name": "New List",
+    "is_public": true,
+    "owner": 6,
+    "trips": [
+      17,
+      12
+    ]
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 26,
+  "fields": {
+    "list_name": "Test",
+    "is_public": false,
+    "owner": 6,
+    "trips": []
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 27,
+  "fields": {
+    "list_name": "another one",
+    "is_public": false,
+    "owner": 6,
+    "trips": []
+  }
+},
+{
+  "model": "trips.usertriplist",
+  "pk": 28,
+  "fields": {
+    "list_name": "Daniel's Private list",
+    "is_public": false,
+    "owner": 7,
+    "trips": []
+  }
+}
+]
