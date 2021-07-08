@@ -28,7 +28,7 @@ class Trip(models.Model):
     )
 
     def __str__(self):
-        return f'{self.name} in {self.location_string}'
+        return f'{self.name} in {self.name}'
 
 
 class Comment(models.Model):
