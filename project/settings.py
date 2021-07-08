@@ -1,9 +1,9 @@
 
-
+import django_on_heroku
 
 import os
 from pathlib import Path
-import django_on_heroku
+
 from dotenv import load_dotenv
 import dj_database_url
 load_dotenv()
