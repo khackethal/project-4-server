@@ -5,7 +5,7 @@
 
 A social media network that allows users to create a profile for themselves, share favourite past trips they have been on and create and manage wish lists for future trips. 
 
-[Try it out.](insert link to deployed app)
+[Try it out.](https://tripbook.netlify.app/)
 
 For the best user experience I would recommend to register with a name and profile photo, to fully see the customisation per user across the app. 
 
@@ -15,14 +15,15 @@ For the best user experience I would recommend to register with a name and profi
 1. [Brief](https://github.com/khackethal/project-4-client#brief)
 2. [Approach](https://github.com/khackethal/project-4-client#brief)
    - [MVP](https://github.com/khackethal/project-4-client#mvp)
-   - [Technologies](https://github.com/khackethal/project-4-client#technologies)
+   - [Technologies](https://github.com/khackethal/project-4-client#technologies-frameworks-apis)
    - [Methodologies](https://github.com/khackethal/project-4-client#methodologies)
 3. [Planning](https://github.com/khackethal/project-4-client#planning)
-   - [Back End](https://github.com/khackethal/project-4-client#back-end)
-   - [Front End](https://github.com/khackethal/project-4-client#front-end)
-4. [Challenges](https://github.com/khackethal/project-4-client#challenges)
-5. [Key Learnings](https://github.com/khackethal/project-4-client#key-learnings)
-6. [Conclusions & Future Features](https://github.com/khackethal/project-4-client#conclusions)
+   - [Back End](https://github.com/khackethal/project-4-client#back-end-1)
+   - [Front End](https://github.com/khackethal/project-4-client#front-end-1)
+4. [Project Frames](https://github.com/khackethal/project-4-client#project-frames)
+5. [Wins & Challenges](https://github.com/khackethal/project-4-client#wins-challenges--bugs)
+6. [Key Learnings and Future Features](https://github.com/khackethal/project-4-client#key-learnings--future-features)
+
 
 ## Brief
 
@@ -89,7 +90,7 @@ I spent a great deal of time in the planning phase, thinking through the Back En
 
 The below diagram was created using [ Quick Db.](https://www.quickdatabasediagrams.com/)
 
-![ Entity Relationship Diagram ](.readme_files/tripbook_erd.png)
+![Entity Relationship Diagram](.readme_files/tripbook_erd.png) 
 
 
 #### The Trip Model:
@@ -223,7 +224,7 @@ The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/)
 
 ##
 
-![ Original Wireframes ](.readme_files/tripbook_wireframes.png)
+![ Original Wireframes](.readme_files/tripbook_wireframes.png) 
 ##
 
 
@@ -444,25 +445,52 @@ function CreateNewList() {
 export default CreateNewList
 ```
 
+## Project Frames
+
+### Login page
+
+![ Login Page](.readme_files/tripbook-login.png)
+
+### User Homepage
+
+![ User Homepage](.readme_files/tripbook-userhomepage.png)
+
+
+## Wins, Challenges & Bugs
+
+### Wins
+
+There were two major Frontend wins- 
+Firstly, I gained a much deeper understanding of React and how to create and use hooks, plus how amazingly easy it is to create and tweak components for specific tasks and page elements.
+
+Secondly, given that there were so many things I didn't know exactly how to achieve going into the project I learned to quickly find answers using available resources such as Stackoverflow.
+
+Regarding the Backend, the main win was how easy it was to pick up Python coming from JavaScript. Also with both Python and Django working in the way you intuitively would expect them to, writing the complete Backend only took me one day, enabling me to really focus on the Frontend features I wanted to implement.
+
+
 ### Challenges & Bugs
 
 The main challenge on this project was definitely time, it was an ambitious app to complete in 8 days, especially given that no CSS frameworks were used.
 While most bugs were fixed by the end of the project a couple still remain. 
 
-On the single trip view, the function to filter out user lists that the trip has already been added to currently downs't work, the path breaks with "cannot read property "includes" of undefined". This means currently a user list will appear with the option to add even if the trip has already been added. As the function is a toggle function clicking add again will actually remove the trip from the list.
-Possible solutions: 
-1) Filter the lists before mapping over them, rather than do the map and filter in one go which results in the error. 
-2) Change the backend to have one "add" and one "delete" path.
+First, there is a small bug that when a logged in user navigates back to the homepage, the error page displays below it if they scroll down.
+This is caused by the Error Component not having a route path assigned, however assigning the usual '/*' also causes some unwanted behaviour.
 
-Then secondly, on the edit trip function the map is not zooming into the previous trip location. The information is there in the backend, so if the user does not edit the map it will remain the same, however currently the zoom is missing. 
-To solve this temporarily, I've added another map component above the edit function to show the correct current location.
+Then secondly, I found React-Responsive-Carousel extremely easy to integrate, but quite hard to style. It's currently displaying too large, making the user scroll to see the full slide height. I might replace it with React-elastic-Carousel in the future.
 
 
-### Key Learnings
+
+### Key Learnings & Future Features
 
 The project was a great way to learn Python, Django and SQL, and to see how easily they work together to create fairly complex relationships.
 I also got a lot better at reading error messages. Quite often if I didn't know exactly how to make something work I would write the code that logically seemed the closest and then go by the error messages to tweak it and make it work. 
 Finally the project served to consolidate my React skills, I really learned just how easy it is to extract logic into smaller components and display them on the page according to a React state set by user interaction, and how Front End and Back End can work together to display the exact data needed. 
+
+There are a couple of features I would like to revisit in the future given the time, namely:
+
+1) Messaging function between users
+2) A more personalised user profile, adding more routes to easily update each single bit of information, similar to the current "update profile picture" and "update status" functionality
+
 
 
 
