@@ -97,8 +97,7 @@ The below diagram was created using [ Quick Db.](https://www.quickdatabasediagra
 
 The most important model is the trip itself, as it unites the relationships between creators, likes, comments and lists.
 
-```
-python
+```python
 
 class Trip(models.Model):
     location_id = models.CharField(max_length=20, blank=True)
@@ -132,7 +131,7 @@ class Trip(models.Model):
 
 The lists themselves have extensive views for the user to interact with, similar to the ones written for the original trips.
 
-```
+```python
 ## VIEW ALL TRIP LISTS
 class UserTripListView(APIView):   
     permission_classes = (IsAuthenticated, )
@@ -189,7 +188,7 @@ class UserTripListDetailView(APIView):
 
 Another noteworthy feature of the backend is the tweaked the login return, which returns the user id, enabling me to write a simple Front End React Hook for every component to use to identify the current user and update the component render immediately on user changes (detailed in FrontEnd section).
 
-```
+```python
 
 class LoginView(APIView):
 
@@ -232,7 +231,7 @@ I mentioned the User Hook above, it enables the app to be highly personalised.
 
 On login, the user id returned by the Back End is stored in local storage: 
 
-```
+```js
 export function setUserId(userId) {
   window.localStorage.setItem('userId', userId)
   console.log(`userId has been set to ${userId}`)
@@ -249,7 +248,7 @@ export function removeUserId(){
 
 This user hook using uses the id to set the current user:
 
-```
+```js
 import React from 'react'
 import { getUserId } from '../../lib/auth'
 import { userProfileView } from '../../lib/api'
@@ -284,14 +283,14 @@ export default useSetUser
 ```
 
 Every component can then use a single line of code to determine the current user and modify the component's contents accordingly.
-```
+```js
  const { user, setUser } = useSetUser()
 ```
 
 Exporting setUser as well means we can instantly re-render the component after the user makes a change, for example updating the status in the status box component, or after uploading a new profile image.
 This enables customisation and responsiveness across the app. The Status Box component is listed as an example use case below.
 
-```
+```js
 import React from 'react'
 import useSetUser from '../hooks/SetUser'
 import { useForm } from '../hooks/useForm'
@@ -365,7 +364,7 @@ The main feature of the app is the ability to create future tip wish-lists by ad
 This is achieved simply by a tick-box setting a boolean list property "isPublic" to false if the user selects it as per the code below.
 In any public pages lists will be filtered to only be displayed if "isPublic" is true.
 
-```
+```js
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
