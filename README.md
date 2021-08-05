@@ -1,14 +1,14 @@
 ![General Assembly Logo](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) GENERAL ASSEMBLY — SOFTWARE ENGINEERING IMMERSIVE 2021
 
 # TripBook
+
 ## Project 4
 
-A social media network that allows users to create a profile for themselves, share favourite past trips they have been on and create and manage wish lists for future trips. 
+A social media network that allows users to create a profile for themselves, share favourite past trips they have been on and create and manage wish lists for future trips.
 
 [Try it out.](https://tripbook.netlify.app/)
 
-For the best user experience I would recommend to register with a name and profile photo, to fully see the customisation per user across the app. 
-
+For the best user experience I would recommend to register with a name and profile photo, to fully see the customisation per user across the app.
 
 ## Table of Contents
 
@@ -23,7 +23,6 @@ For the best user experience I would recommend to register with a name and profi
 4. [Project Frames](https://github.com/khackethal/project-4-client#project-frames)
 5. [Wins & Challenges](https://github.com/khackethal/project-4-client#wins-challenges--bugs)
 6. [Key Learnings and Future Features](https://github.com/khackethal/project-4-client#key-learnings--future-features)
-
 
 ## Brief
 
@@ -45,19 +44,19 @@ My main priority was creating a seamless user experience, allowing a journey thr
 
 A stretch goal I didn't have time to implement was a messaging functionality between users, which I might revisit in the coming weeks. Please see below for other future features.
 
-
 ### Technologies/ Frameworks/ APIs
 
 #### Back End
+
 - PostgreSQL
 - Django
 - Pylint
 - Psycopg2 Binary
-- Django
 - Django Reast Framework
 - Djano Rest Framework Camel Case
 
 #### Front End
+
 - Axios
 - Cloudinary
 - React
@@ -71,30 +70,26 @@ A stretch goal I didn't have time to implement was a messaging functionality bet
 - Moment
 - Node.js
 
-
 ### Methodologies
+
 - Write readable, simple, DRY code per KISS
-- Create reusable components that have a clear, specific task 
+- Create reusable components that have a clear, specific task
 
-N. B it was optional to work in groups for this project, I chose to work solo to ensure I have clearly understood all aspects of creating both the Back End and the Front End, and to consolidate existing CSS skills. 
-
+N. B it was optional to work in groups for this project, I chose to work solo to ensure I have clearly understood all aspects of creating both the Back End and the Front End, and to consolidate existing CSS skills.
 
 ## Planning
 
 I spent a great deal of time in the planning phase, thinking through the Back End relationships and the user journey through the app. Below are my initial diagrams for both Back End and Front End, the finished app hardly deviates from them due to the extended planning phase.
 
-
-### Back End 
+### Back End
 
 ### Entity Relationship Diagram
 
 The below diagram was created using [ Quick Db.](https://www.quickdatabasediagrams.com/)
 
-
 <p>
 <img src=".readme_files/tripbook_erd.png"alt="Entity Relationship Diagram"/>
 </p>
-
 
 #### The Trip Model:
 
@@ -131,18 +126,17 @@ class Trip(models.Model):
         return f'{self.name} in {self.location_string}'
 ```
 
-
 The lists themselves have extensive views for the user to interact with, similar to the ones written for the original trips.
 
 ```python
 ## VIEW ALL TRIP LISTS
-class UserTripListView(APIView):   
+class UserTripListView(APIView):
     permission_classes = (IsAuthenticated, )
     def get(self, _request):
         lists = UserTripList.objects.all()
         serialized_trips = PopulatedUserTripListSerializer(lists, many=True)
         return Response(serialized_trips.data, status=status.HTTP_200_OK)
-    
+
 ## POST A NEW LIST
     def post(self, request):
         request.data['owner'] = request.user.id
@@ -176,7 +170,7 @@ class UserTripListDetailView(APIView):
         list_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-## RENAME LIST OR CHANGE PRIVACY SETTINGS 
+## RENAME LIST OR CHANGE PRIVACY SETTINGS
     def put(self, request, pk):
         list_to_update = self.get_list(pk=pk)
         if list_to_update.owner != request.user:
@@ -220,9 +214,9 @@ class LoginView(APIView):
 
 ### Front End
 
-The front end is a React app, using the following wireframes. 
+The front end is a React app, using the following wireframes.
 The below frames have been tweaked slightly for the final app, as I felt it would be beneficial for the user and create a more seamless experience to reduce the number of pages and page changes.
-The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/) 
+The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/)
 
 ##
 
@@ -232,200 +226,202 @@ The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/)
 
 ##
 
-
 I mentioned the User Hook above, it enables the app to be highly personalised.
 
-On login, the user id returned by the Back End is stored in local storage: 
+On login, the user id returned by the Back End is stored in local storage:
 
 ```js
 export function setUserId(userId) {
-  window.localStorage.setItem('userId', userId)
-  console.log(`userId has been set to ${userId}`)
+  window.localStorage.setItem("userId", userId);
+  console.log(`userId has been set to ${userId}`);
 }
 
-export function getUserId(){
-  return window.localStorage.getItem('userId')
+export function getUserId() {
+  return window.localStorage.getItem("userId");
 }
 
-export function removeUserId(){
-  window.localStorage.removeItem('userId')
+export function removeUserId() {
+  window.localStorage.removeItem("userId");
 }
 ```
 
 This user hook using uses the id to set the current user:
 
 ```js
-import React from 'react'
-import { getUserId } from '../../lib/auth'
-import { userProfileView } from '../../lib/api'
+import React from "react";
+import { getUserId } from "../../lib/auth";
+import { userProfileView } from "../../lib/api";
 
 function useSetUser() {
-
-  const userId = getUserId()
-  const [user, setUser] = React.useState(null)
-  const [error, setIsError] = React.useState(false)
+  const userId = getUserId();
+  const [user, setUser] = React.useState(null);
+  const [error, setIsError] = React.useState(false);
 
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const result = await userProfileView(userId)
-        setUser(result.data)
+        const result = await userProfileView(userId);
+        setUser(result.data);
       } catch (e) {
-        setIsError(true)
+        setIsError(true);
       }
-    }
-    getData()
-  },[userId])
+    };
+    getData();
+  }, [userId]);
 
   return {
     user,
     setUser,
     error,
     setIsError,
-  }
+  };
 }
 
-export default useSetUser
+export default useSetUser;
 ```
 
 Every component can then use a single line of code to determine the current user and modify the component's contents accordingly.
+
 ```js
- const { user, setUser } = useSetUser()
+const { user, setUser } = useSetUser();
 ```
 
 Exporting setUser as well means we can instantly re-render the component after the user makes a change, for example updating the status in the status box component, or after uploading a new profile image.
 This enables customisation and responsiveness across the app. The Status Box component is listed as an example use case below.
 
 ```js
-import React from 'react'
-import useSetUser from '../hooks/SetUser'
-import { useForm } from '../hooks/useForm'
-import { editUserProfile } from '../../lib/api'
-import Loader from 'react-loader-spinner'
-import Error from '../auth/Error'
-
+import React from "react";
+import useSetUser from "../hooks/SetUser";
+import { useForm } from "../hooks/useForm";
+import { editUserProfile } from "../../lib/api";
+import Loader from "react-loader-spinner";
+import Error from "../auth/Error";
 
 function StatusBox() {
-
-  const { user, setUser } = useSetUser()
-  const userId = user?.id
-  const [ statusPlaceholder, setStatusPlaceholder ] = React.useState(null)
-  const [error, setIsError] = React. useState(false)
+  const { user, setUser } = useSetUser();
+  const userId = user?.id;
+  const [statusPlaceholder, setStatusPlaceholder] = React.useState(null);
+  const [error, setIsError] = React.useState(false);
 
   const { formData, handleChange } = useForm({
-    status: '',
+    status: "",
+  });
 
-  })
-  
   const handleStatusSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const res = await editUserProfile(userId, formData)
-      console.log('res', res.data)
-      setStatusPlaceholder(`What's on your mind, ${user.username}?`)
-      setUser( { ...user, status: res.data.status })
-
+      const res = await editUserProfile(userId, formData);
+      console.log("res", res.data);
+      setStatusPlaceholder(`What's on your mind, ${user.username}?`);
+      setUser({ ...user, status: res.data.status });
     } catch (err) {
-      setIsError(true)
+      setIsError(true);
     }
-  }
-
+  };
 
   return (
     <>
-      { user?.username ? 
-        <div >
-          <img className="status-image" height="100px" src={user.profileImage} alt="profile image" />
-          <p className="status-paragraph">{user?.status}</p> 
+      {user?.username ? (
+        <div>
+          <img
+            className="status-image"
+            height="100px"
+            src={user.profileImage}
+            alt="profile image"
+          />
+          <p className="status-paragraph">{user?.status}</p>
           <div className="input-div">
-            <input 
-              name="status" 
+            <input
+              name="status"
               onChange={handleChange}
-              className="status-input" 
+              className="status-input"
               width="100px"
-              placeholder= {statusPlaceholder ?  { statusPlaceholder } : `What's on your mind, ${user?.username}?`}></input>
+              placeholder={
+                statusPlaceholder
+                  ? { statusPlaceholder }
+                  : `What's on your mind, ${user?.username}?`
+              }
+            ></input>
           </div>
           <div className="status-button-div">
-            <button onClick={handleStatusSubmit} className="status-button">Submit Status</button>
+            <button onClick={handleStatusSubmit} className="status-button">
+              Submit Status
+            </button>
           </div>
-        </div> : 
+        </div>
+      ) : (
         <Loader
           type="ThreeDots"
           color="#1877F2"
           height={100}
           width={100}
-          timeout={3000} 
-        />}
+          timeout={3000}
+        />
+      )}
       {error && <Error />}
     </>
-  )
+  );
 }
 
-export default StatusBox
+export default StatusBox;
 ```
 
-
-The main feature of the app is the ability to create future tip wish-lists by adding trips other users have posted. User have the opportunity to set their lists as either "public" (visible to all other users) or "private"(visible only to them). 
+The main feature of the app is the ability to create future tip wish-lists by adding trips other users have posted. User have the opportunity to set their lists as either "public" (visible to all other users) or "private"(visible only to them).
 This is achieved simply by a tick-box setting a boolean list property "isPublic" to false if the user selects it as per the code below.
 In any public pages lists will be filtered to only be displayed if "isPublic" is true.
 
 ```js
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-import useSetUser from '../hooks/SetUser'
-import { useForm } from '../hooks/useForm'
-import { createNewList } from '../../lib/api'
+import useSetUser from "../hooks/SetUser";
+import { useForm } from "../hooks/useForm";
+import { createNewList } from "../../lib/api";
 // eslint-disable-next-line
-import Error from '../auth/Error'
-import Loader from 'react-loader-spinner'
-
+import Error from "../auth/Error";
+import Loader from "react-loader-spinner";
 
 function CreateNewList() {
-
-  const { user } = useSetUser()
-  const [ Error, setIsError ] = React.useState(false)
-  const history = useHistory()
+  const { user } = useSetUser();
+  const [Error, setIsError] = React.useState(false);
+  const history = useHistory();
 
   const { formData, handleChange } = useForm({
-    listName: '',
-    isPublic: 'true',
-
-  })
+    listName: "",
+    isPublic: "true",
+  });
 
   const handleListSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const res = await createNewList(formData)
-      history.push(`home/triplists/${res.data.id}`)
+      const res = await createNewList(formData);
+      history.push(`home/triplists/${res.data.id}`);
     } catch (err) {
-      setIsError(true)
+      setIsError(true);
     }
-  }
-
-
-
+  };
 
   return (
     <>
-      { Error &&
-      < Error />  }
-      { user?.username ? 
-        <div >
+      {Error && <Error />}
+      {user?.username ? (
+        <div>
           <div className="input-div">
-            <input 
-              name="listName" 
+            <input
+              name="listName"
               onChange={handleChange}
-              className="status-input" 
+              className="status-input"
               width="100px"
-              placeholder= {'New List Name'}></input>
+              placeholder={"New List Name"}
+            ></input>
           </div>
           <div>
             <p> Set to Private : </p>
             <label>
-              <input type="checkbox"
+              <input
+                type="checkbox"
                 name="isPublic"
                 value={false}
                 onChange={handleChange}
@@ -433,21 +429,25 @@ function CreateNewList() {
             </label>
           </div>
           <div className="status-button-div">
-            <button onClick={handleListSubmit} className="status-button">Create List</button>
+            <button onClick={handleListSubmit} className="status-button">
+              Create List
+            </button>
           </div>
-        </div> : 
+        </div>
+      ) : (
         <Loader
           type="ThreeDots"
           color="#1877F2"
           height={100}
           width={100}
-          timeout={3000} 
-        />}
+          timeout={3000}
+        />
+      )}
     </>
-  )
+  );
 }
 
-export default CreateNewList
+export default CreateNewList;
 ```
 
 ## Project Frames
@@ -458,49 +458,40 @@ export default CreateNewList
 <img src=".readme_files/tripbook-login.png"alt="Login Page"/>
 </p>
 
-
 ### User Homepage
 
 <p>
 <img src=".readme_files/tripbook-userhomepage.png"alt="User Homepage"/>
 </p>
 
-
 ## Wins, Challenges & Bugs
 
 ### Wins
 
-There were two major Frontend wins- 
+There were two major Frontend wins-
 Firstly, I gained a much deeper understanding of React and how to create and use hooks, plus how amazingly easy it is to create and tweak components for specific tasks and page elements.
 
 Secondly, given that there were so many things I didn't know exactly how to achieve going into the project I learned to quickly find answers using available resources such as Stackoverflow.
 
 Regarding the Backend, the main win was how easy it was to pick up Python coming from JavaScript. Also with both Python and Django working in the way you intuitively would expect them to, writing the complete Backend only took me one day, enabling me to really focus on the Frontend features I wanted to implement.
 
-
 ### Challenges & Bugs
 
 The main challenge on this project was definitely time, it was an ambitious app to complete in 8 days, especially given that no CSS frameworks were used.
-While most bugs were fixed by the end of the project a couple still remain. 
+While most bugs were fixed by the end of the project a couple still remain.
 
 First, there is a small bug that when a logged in user navigates back to the homepage, the error page displays below it if they scroll down.
-This is caused by the Error Component not having a route path assigned, however assigning the usual '/*' also causes some unwanted behaviour.
+This is caused by the Error Component not having a route path assigned, however assigning the usual '/\*' also causes some unwanted behaviour.
 
 Then secondly, I found React-Responsive-Carousel extremely easy to integrate, but quite hard to style. It's currently displaying too large, making the user scroll to see the full slide height. I might replace it with React-elastic-Carousel in the future.
-
-
 
 ### Key Learnings & Future Features
 
 The project was a great way to learn Python, Django and SQL, and to see how easily they work together to create fairly complex relationships.
-I also got a lot better at reading error messages. Quite often if I didn't know exactly how to make something work I would write the code that logically seemed the closest and then go by the error messages to tweak it and make it work. 
-Finally the project served to consolidate my React skills, I really learned just how easy it is to extract logic into smaller components and display them on the page according to a React state set by user interaction, and how Front End and Back End can work together to display the exact data needed. 
+I also got a lot better at reading error messages. Quite often if I didn't know exactly how to make something work I would write the code that logically seemed the closest and then go by the error messages to tweak it and make it work.
+Finally the project served to consolidate my React skills, I really learned just how easy it is to extract logic into smaller components and display them on the page according to a React state set by user interaction, and how Front End and Back End can work together to display the exact data needed.
 
 There are a couple of features I would like to revisit in the future given the time, namely:
 
-1) Messaging function between users
-2) A more personalised user profile, adding more routes to easily update each single bit of information, similar to the current "update profile picture" and "update status" functionality
-
-
-
-
+1. Messaging function between users
+2. A more personalised user profile, adding more routes to easily update each single bit of information, similar to the current "update profile picture" and "update status" functionality
