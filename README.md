@@ -68,7 +68,7 @@ A stretch goal I didn't have time to implement was a messaging functionality bet
 - React Responsive Carousel
 - Mapbox
 - Moment
-- Node.js
+
 
 ### Methodologies
 
